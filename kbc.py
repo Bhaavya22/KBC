@@ -54,18 +54,24 @@ def play_game(name, ques, ans, option):   #to recieve the name in the func name 
     print("Your final score is :", score)
     return name, score
 
+def view_score(name_n_score):
+    for name, score in name_n_score.items():
+        print(name, "has scored",score)
+
 def game(ques, ans, option):
     name_n_score = {}
     while True:
         print("Welcome to the KBC game")
-        print("1) Play Game\n3) Exit")
+        print("1) Play Game\n2) View Scores\n3) Exit")
         choice = int(input("Please enter ur choice:"))
         if choice==1:
             name= input("please enter ur name:")         #to pass the name in the func name is written as a parameter
             name, score =  play_game(name, ques, ans, option)          
             name_n_score[name] = score
-
+        
         elif choice==2:
+            view_score(name_n_score)
+        elif choice==3:
             break
         else:
             print("Your choice is not valid")
